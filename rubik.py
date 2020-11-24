@@ -11,7 +11,7 @@ import os
 moves = ["F", "B", "L", "R", "U", "D", "f", "b", "l", "r", "u", "d"]
 direction = ["", "'", "2"]
 cube = ["U", "U", "U", "U", "U", "U", "U", "U", "U", "L", "L", "L", "L", "L", "L", "L", "L", "L", "F", "F", "F", "F", "F", "F", "F", "F", "F", "R", "R", "R", "R", "R", "R", "R", "R", "R", "B", "B", "B", "B", "B", "B", "B", "B", "B", "D", "D", "D", "D", "D", "D", "D", "D", "D"]
-PATH = "C:/Users/Julie/Desktop/42/Rubiks/"
+PATH = ""
 
 
 def print_verbose(arg, verbose):
@@ -84,8 +84,6 @@ if __name__ == "__main__":
 			verbose += f"{'Original Cube':^22}\n\n{ft_print(cube)}\n\n"
 		if args.debug is False and args.correction is False and args.none is False:
 			print(f"{'Scramble Moves'} ({len(commands)}):\n{' '.join(args.Moves)}\n")
-		if args.correction is True:
-			print(f"{' '.join(args.Moves)}", end=" ")
 		mv.use_move(commands, cube)
 		if args.ultraverbose is True:
 			verbose += f"{'Scrambled Cube':^22}\n\n{ft_print(cube)}\n"
@@ -106,7 +104,7 @@ if __name__ == "__main__":
 		if args.debug is True and args.correction is False:
 			print(f"nb_s: {len(commands):>3} | nb_m: {solved_len:>3} | time: {timer() - start:>6.5f} ")
 		if args.correction is True:
-			print(f"{solved}")
+			print(f"{' '.join(args.Moves)} {solved}")
 		if args.visu is True:
 			os.system("processing-3.5.4/processing-java.exe --sketch=" + PATH + "Visu --run \"" + ' '.join(args.Moves) + "\" \"" + solved + "\"")
 	else:
