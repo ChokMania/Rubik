@@ -50,6 +50,7 @@ def simplify_moves(moves):
 	while i < len(moves):
 		buff = []
 		buff += [moves[i]]
+		len_buff = len(buff)
 		for j in range(i + 1, len(moves)):
 			if (is_same_or_opposite(moves[j][0], buff[-1][0], duos)):
 				buff += [moves[j]]
