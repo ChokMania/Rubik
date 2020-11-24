@@ -114,8 +114,6 @@ def algo(cube, fun, auth_moves, apply_move):
 			for move in auth_moves:
 				if len(state[1]) > 0 and move[0] == state[1][-1][0]:
 					continue
-				# if len(state[1]) >= 2 and move[0] == state[1][-2][0] and mirror(move[0], state[1][-1][0]) is True:
-				# 	continue
 				cpy = state[0][:]
 				apply_move[move[0]](cpy, move[0] + move[1])
 				if fun(cpy) is True:
