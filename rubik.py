@@ -35,6 +35,9 @@ def check_str(m):
 	if len(m) > 0:
 		m = m.split()
 		for x in range(len(m)):
+			if len(m[x]) > 2:
+				error += f"\nArg {str(x + 1)} \"{m}\", is too long."
+				nb += 1
 			if m[x][0] not in moves:
 				error += f"\nArg {str(x + 1)} \"{m[x]}\", \"{m[x][0]}\" doesn't match to an available move"
 				nb += 1
